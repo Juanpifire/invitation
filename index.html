@@ -4,15 +4,16 @@
     <title>Dia del Maestro</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.6/aframe/build/aframe-ar.js"></script>
+    <script src="gif-shader.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs>
       <!-- Definir el marcador personalizado -->
       <a-marker type="pattern" url="my-marker.patt">
-        <!-- Añadir un GIF animado -->
-        <a-image src="program.gif" position="0 0 0" rotation="-90 0 0" width="1" height="1">
+        <!-- Añadir un plano con la textura del GIF animado -->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" material="shader: gif; src: url(program.gif);">
           <a-animation attribute="rotation" to="0 360 0" dur="5000" repeat="indefinite"></a-animation>
-        </a-image>
+        </a-plane>
       </a-marker>
       <!-- Definir la entidad de la cámara -->
       <a-entity camera></a-entity>
